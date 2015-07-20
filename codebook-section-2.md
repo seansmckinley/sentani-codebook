@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from sentani import get_survey
 ```
 
-# Code Book for Lake Sentani survey data
+#Code Book for Lake Sentani survey data
 
 This document briefly describes the data for each of the columns in this survey.
 The original questions can be found in the sentani_lake_form_v11.xls document.
@@ -24,7 +24,7 @@ print('number of columns =', len(survey.columns))
 
 #Section 2
 
-## demand_point
+##demand_point
 
 English: Type of demand point.
 
@@ -34,7 +34,7 @@ Indonesian: Jenis tempat.
 survey['demand_point'].value_counts(dropna=False)
 ```
 
-## demand_point_other
+##demand_point_other
 
 English: Please describe what you meant by "other."
 
@@ -47,13 +47,13 @@ demand_point
 survey['demand_point_other'].value_counts()
 ```
 
-## primary_contact
+##primary_contact
 
 English: Name of head of houshold or primary contact. (Needs to be kept secure)
 
 Indonesian: Nama kepala rumah tangga atau orang kontak utama.
 
-## HP_y_n
+##HP_y_n
 
 English: Does the household posess a cell phone?
 
@@ -63,13 +63,13 @@ Indonesian: Apakah orang kontak utama memiliki HP?
 survey['HP_y_n'].value_counts(dropna=False)
 ```
 
-## HP
+##HP
 
 English: Mobile phone number. (needs to be kept secure)
 
 Indonesian: Nomor HP.
 
-## wall
+##wall
 
 English: What type of wall does the demand point have?
 
@@ -93,7 +93,7 @@ Indonesian: Jelaskanlah apa yang anda maksud dengan "lain - lain."
 survey['wall_other'].value_counts(dropna=False)
 ```
 
-## roof
+##roof
 
 English: What type of roof does the demand point have?
 
@@ -103,7 +103,7 @@ Indonesian: Apakah jenis atap yang dimiliki bangunan tersebut?
 survey['roof'].value_counts(dropna=False)
 ```
 
-## roof_other
+##roof_other
 
 English: Please describe what you meant by "other."
 
@@ -113,7 +113,7 @@ Indonesian: Jelaskanlah apa yang anda maksud dengan "lain - lain."
 survey['roof_other'].value_counts(dropna=False)
 ```
 
-## building_condition
+##building_condition
 
 English: General condition of the building?
 
@@ -123,7 +123,7 @@ Indonesian: Keadaan umum bangunan?
 survey['building_condition'].value_counts(dropna=False)
 ```
 
-## assets
+##assets
 
 English: Select any assets that are owned by people living in the demand point.
 
@@ -134,7 +134,7 @@ bangunan tersebut.
 survey['assets'].value_counts(dropna=False)
 ```
 
-## assets/livestock
+##assets/livestock
 
 English: Select any assets that are owned by people living in the demand point.
 
@@ -144,7 +144,7 @@ Indonesian: Masukkan kuantitas setiap jenis ternak.
 survey['assets/livestock'].value_counts(dropna=False)
 ```
 
-## assets/machinery
+##assets/machinery
 
 English: What type of machinery assets do they own?
 
@@ -154,7 +154,7 @@ Indonesian: Jenis mesin - mesin apa yang mereka miliki sebagai aset?
 survey['assets/machinery'].value_counts(dropna=False)
 ```
 
-## assets/other
+##assets/other
 
 English: Please describe what you meant by "other durable goods assets."
 
@@ -165,7 +165,7 @@ lama lainnya."
 survey['assets/other'].value_counts(dropna=False)
 ```
 
-## group_livestock_quantity/pigs
+##group_livestock_quantity/pigs
 
 
 
@@ -177,7 +177,7 @@ Indonesian: Masukkan kuantitas setiap jenis ternak: babi.
 survey['group_livestock_quantity/pigs'].describe()
 ```
 
-## group_livestock_quantity/chickens
+##group_livestock_quantity/chickens
 
 English: Enter the quantity of each livestock type: chickens.
 
@@ -187,7 +187,7 @@ Indonesian: Masukkan kuantitas setiap jenis ternak: ayam.
 survey['group_livestock_quantity/chickens'].describe()
 ```
 
-## group_livestock_quantity/goats
+##group_livestock_quantity/goats
 
 English: Enter the quantity of each livestock type: goats.
 
@@ -197,7 +197,7 @@ Indonesian: Masukkan kuantitas setiap jenis ternak: kambing.
 survey['group_livestock_quantity/goats'].describe()
 ```
 
-## group_livestock_quantity/fish
+##group_livestock_quantity/fish
 
 English: Enter the quantity of each livestock type: fish.
 
@@ -207,7 +207,7 @@ Indonesian: Masukkan kuantitas setiap jenis ternak: ikan.
 survey['group_livestock_quantity/fish'].describe()
 ```
 
-## group_livestock_quantity/cows
+##group_livestock_quantity/cows
 
 English: Enter the quantity of each livestock type: cows.
 
@@ -217,7 +217,7 @@ Indonesian: Masukkan kuantitas setiap jenis ternak: sapi.
 survey['group_livestock_quantity/cows'].describe()
 ```
 
-## group_livestock_quantity/other
+##group_livestock_quantity/other
 
 English: Enter the quantity of each livestock type: other.
 
@@ -227,7 +227,8 @@ Indonesian: Masukkan kuantitas setiap jenis ternak: lain-lain.
 survey['group_livestock_quantity/other'].unique()
 ```
 
-## machinery
+##machinery
+
 This text field needs to be split out for analysis.
 
 English: What type of machinery assets do they own?
@@ -239,7 +240,7 @@ Indonesian: Jenis mesin - mesin apa yang mereka miliki sebagai aset?
 survey['machinery'].unique()
 ```
 
-## asset_other
+##asset_other
 
 TODO: this field is another 'lumped together' field that will need to be parsed
 
@@ -252,7 +253,7 @@ lama lainnya."
 survey['asset_other'].unique()
 ```
 
-## job
+##job
 
 English: What is your primary job? Where does your primary income come from?
 
@@ -262,7 +263,7 @@ Indonesian: Apa pekerjaan Anda?  Dari mana sumber pendapatan Anda?
 survey['job'].value_counts(dropna=False)
 ```
 
-## jobs_other
+##jobs_other
 
 English: Please describe what you meant by "other."
 
@@ -272,7 +273,7 @@ Indonesian: Jelaskanlah apa yang anda maksud dengan "lain - lain."
 survey['jobs_other'].unique()
 ```
 
-## group_income_reg/electric_income
+##group_income_reg/electiric_income
 
 Despite the name, I think this is the household income.  I'm inclined to change
 this field descriptor.
@@ -285,7 +286,7 @@ Indonesian: Berapa besar pendapatan Anda? Jumlah pendapatan (Rp)?
 survey['group_income_reg/electric_income'].describe()
 ```
 
-## group_income_reg/electric_income_freq
+##group_income_reg/electric_income_freq
 
 English: Please describe your regular income. Frequency of income?
 
@@ -293,4 +294,8 @@ Indonesian: Berapa besar pendapatan Anda? Frekuensi pendapatan?
 
 ```python
 survey['group_income_reg/electric_income_freq'].describe()
+```
+
+```python
+
 ```
