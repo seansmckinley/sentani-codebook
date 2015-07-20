@@ -362,7 +362,7 @@ Indonesian: Apakah jenis meteran (untuk koneksi jaringan mikro kampung)?
 survey['community_microgrid_meter'].value_counts(dropna=False)
 ```
 
-## community_microgrid_meter_reading
+##community_microgrid_meter_reading
 
 English: What is the current "kWh" reading on the community micro-grid meter?
 
@@ -496,7 +496,7 @@ surya?
 survey['inverter_size'].value_counts(dropna=False)
 ```
 
-## solar_home_system_price
+##solar_home_system_price
 
 This looks especially suspect.
 
@@ -519,7 +519,7 @@ listrik yang lain)?
 survey['power_supply_other_year'].value_counts(dropna=False)
 ```
 
-## power_supply_working
+##power_supply_working
 
 English: Which of the existing electricity power supplies works now?
 
@@ -611,7 +611,7 @@ jaringan mikro kampung (Rp/bulan)?
 survey['community_microgrid_expenditure'].describe()
 ```
 
-## genset_expenditure
+##genset_expenditure
 
 English: How much do you spend on fuel each week to operate your private genset
 (Rp/day)?
@@ -623,10 +623,15 @@ Indonesian: Berapa biaya yang anda habiskan untuk membeli bahan bakar genset
 survey['genset_expenditure'].describe()
 ```
 
-## power_supply_notes
+##power_supply_notes
 
 This is a free form text field.  I'm noticing several comments about voltage
-droop.
+drop.
+
+English: Please provide any additional notes related to existing power supplies.
+
+Indonesian: Sediakankanlah catatan tambahan yang berhubungan dengan supply
+listrik yang ada.
 
 ```python
 survey['power_supply_notes'].unique()
