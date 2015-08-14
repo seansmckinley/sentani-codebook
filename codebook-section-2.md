@@ -3,7 +3,8 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-from sentani import get_survey
+from pysentani import find_survey
+from sentani_temp import pie_chart_boolean
 ```
 
 #Code Book for Lake Sentani survey data
@@ -17,7 +18,7 @@ The document will also point out any fields that need further analysis or appear
 to need inspection to remove errors.
 
 ```python
-survey = get_survey()
+survey = find_survey('../sentani')
 print('number of entries =', len(survey))
 print('number of columns =', len(survey.columns))
 ```
@@ -34,6 +35,11 @@ Indonesian: Jenis tempat.
 survey['demand_point'].value_counts(dropna=False)
 ```
 
+```python
+sns.set(style="darkgrid")
+dp = sns.countplot(x="demand_point", data=survey)
+```
+
 ##demand_point_other
 
 English: Please describe what you meant by "other."
@@ -44,7 +50,9 @@ TODO: figure this out. do we use this to augment the enumerated types in
 demand_point
 
 ```python
-survey['demand_point_other'].value_counts()
+series = survey['demand_point_other'].value_counts(dropna=True)
+df = pd.DataFrame(series)
+df.rename(columns = {0:'count'})
 ```
 
 ##primary_contact
@@ -63,6 +71,10 @@ Indonesian: Apakah orang kontak utama memiliki HP?
 survey['HP_y_n'].value_counts(dropna=False)
 ```
 
+```python
+x = pie_chart_boolean('HP_y_n',survey)
+```
+
 ##HP
 
 English: Mobile phone number. (needs to be kept secure)
@@ -79,6 +91,11 @@ Indonesian: Apakah jenis tembok dari bangunan tersebut?
 survey['wall'].value_counts(dropna=False)
 ```
 
+```python
+sns.set(style="darkgrid")
+wallg = sns.countplot(x="wall", data=survey)
+```
+
 ## wall_other
 
 TODO: wall materials not listed in the survey choices.  Should correspond with
@@ -87,7 +104,6 @@ TODO: wall materials not listed in the survey choices.  Should correspond with
 English: Please describe what you meant by "other."
 
 Indonesian: Jelaskanlah apa yang anda maksud dengan "lain - lain."
-
 
 ```python
 survey['wall_other'].value_counts(dropna=False)
@@ -103,6 +119,10 @@ Indonesian: Apakah jenis atap yang dimiliki bangunan tersebut?
 survey['roof'].value_counts(dropna=False)
 ```
 
+```python
+roofg = sns.countplot(x="roof", data=survey)
+```
+
 ##roof_other
 
 English: Please describe what you meant by "other."
@@ -113,6 +133,10 @@ Indonesian: Jelaskanlah apa yang anda maksud dengan "lain - lain."
 survey['roof_other'].value_counts(dropna=False)
 ```
 
+```python
+roof_other_g = sns.countplot(x="roof_other", data=survey)
+```
+
 ##building_condition
 
 English: General condition of the building?
@@ -121,6 +145,11 @@ Indonesian: Keadaan umum bangunan?
 
 ```python
 survey['building_condition'].value_counts(dropna=False)
+```
+
+```python
+bcg = sns.countplot(x="building_condition", data=survey)
+
 ```
 
 ##assets
@@ -134,6 +163,10 @@ bangunan tersebut.
 survey['assets'].value_counts(dropna=False)
 ```
 
+```python
+asset_g  = sns.countplot(x="assets", data=survey)
+```
+
 ##assets/livestock
 
 English: Select any assets that are owned by people living in the demand point.
@@ -142,6 +175,10 @@ Indonesian: Masukkan kuantitas setiap jenis ternak.
 
 ```python
 survey['assets/livestock'].value_counts(dropna=False)
+```
+
+```python
+aslig = pie_chart_boolean('assets/livestock',survey, dropna=False)
 ```
 
 ##assets/machinery
@@ -154,6 +191,10 @@ Indonesian: Jenis mesin - mesin apa yang mereka miliki sebagai aset?
 survey['assets/machinery'].value_counts(dropna=False)
 ```
 
+```python
+assets_machinery_pie = pie_chart_boolean('assets/machinery',survey, dropna=False)
+```
+
 ##assets/other
 
 English: Please describe what you meant by "other durable goods assets."
@@ -163,6 +204,10 @@ lama lainnya."
 
 ```python
 survey['assets/other'].value_counts(dropna=False)
+```
+
+```python
+assets_other= pie_chart_boolean('assets/other',survey, False)
 ```
 
 ##group_livestock_quantity/pigs
@@ -235,7 +280,6 @@ English: What type of machinery assets do they own?
 
 Indonesian: Jenis mesin - mesin apa yang mereka miliki sebagai aset?
 
-
 ```python
 survey['machinery'].unique()
 ```
@@ -261,6 +305,10 @@ Indonesian: Apa pekerjaan Anda?  Dari mana sumber pendapatan Anda?
 
 ```python
 survey['job'].value_counts(dropna=False)
+```
+
+```python
+jobsg = sns.countplot(x="job", data=survey)
 ```
 
 ##jobs_other
@@ -294,8 +342,4 @@ Indonesian: Berapa besar pendapatan Anda? Frekuensi pendapatan?
 
 ```python
 survey['group_income_reg/electric_income_freq'].describe()
-```
-
-```python
-
 ```

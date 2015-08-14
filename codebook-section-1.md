@@ -4,8 +4,8 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
-from sentani import find_survey, create_village_name_map,counts_df
-
+from pysentani import find_survey, create_village_name_map
+from sentani_temp import pie_chart_boolean, create_village_map
 from bokeh.plotting import show, output_notebook
 
 from bokeh.browserlib import view
@@ -16,18 +16,8 @@ from bokeh.resources import INLINE
 output_notebook()
 ```
 
-# Code Book for Lake Sentani survey data
-
-This document briefly describes the data for each of the columns in this survey.
-The original questions can be found in the sentani_lake_form_v11.xls document.
-For each column of the data, this document will describe the question and a
-brief summary or description of the results.
-
-The document will also point out any fields that need further analysis or appear
-to need inspection to remove errors.
-
 ```python
-survey = find_survey('../../')
+survey = find_survey('../sentani')
 print('number of entries =', len(survey))
 print('number of columns =', len(survey.columns))
 ```
@@ -41,12 +31,7 @@ household.
 ## village_name
 
 ```python
-survey['village_name'].unique()
-```
-
-```python
 survey['village_name'].value_counts(dropna=False)
-counts_df("village_name",survey)
 ```
 
 ## gps_point
@@ -57,7 +42,6 @@ altitude precision".
 ```python
 survey[['gps_point']].head()
 ```
-
 
 #_gps_point_lat...','_gps_point_lon...','_gps_point_alt...','_gps_point_prec...'
 
@@ -76,7 +60,7 @@ g.agg([np.mean])
 ```
 
 ```python
-plot = create_village_name_map(survey)
+plot = create_village_map(survey)
 show(plot)
 ```
 

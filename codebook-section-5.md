@@ -3,7 +3,8 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-from sentani import get_survey
+from pysentani import find_survey
+from sentani_temp import pie_chart_boolean
 ```
 
 # Code Book for Lake Sentani survey data
@@ -17,7 +18,7 @@ The document will also point out any fields that need further analysis or appear
 to need inspection to remove errors.
 
 ```python
-survey = get_survey()
+survey = find_survey('../sentani')
 print('number of entries =', len(survey))
 print('number of columns =', len(survey.columns))
 ```
@@ -48,6 +49,10 @@ survey['app_now/lighting'].value_counts(dropna=False)
 #survey['app_now/lighting'].describe()
 ```
 
+```python
+a = pie_chart_boolean('app_now/lighting', survey, False)
+```
+
 ## app_now/TV
 English: TV.
 
@@ -56,6 +61,10 @@ Indonesian: TV.
 ```python
 ## app_now/TV
 survey['app_now/TV'].value_counts(dropna=False)
+```
+
+```python
+aa = pie_chart_boolean('app_now/TV', survey, False)
 ```
 
 ## app_now/radio
@@ -68,6 +77,10 @@ Indonesian: Radio.
 survey['app_now/radio'].value_counts(dropna=False)
 ```
 
+```python
+ab = pie_chart_boolean('app_now/radio', survey, False)
+```
+
 ## app_now/fridge
 English: Refrigerator.
 
@@ -76,6 +89,10 @@ Indonesian: Kulkas.
 ```python
 ## app_now/fridge
 survey['app_now/fridge'].value_counts(dropna=False)
+```
+
+```python
+bb = pie_chart_boolean('app_now/fridge', survey, False)
 ```
 
 ##app_now/fan
@@ -88,6 +105,10 @@ Indonesian: Kipas.
 survey['app_now/fan'].value_counts(dropna=False)
 ```
 
+```python
+bc= pie_chart_boolean('app_now/fan', survey, False)
+```
+
 ##app_now/rice_cooker
 English: Rice cooker.
 
@@ -96,6 +117,10 @@ Indonesian: Penanak nasi.
 ```python
 ## app_now/rice_cooker
 survey['app_now/rice_cooker'].value_counts(dropna=False)
+```
+
+```python
+aba = pie_chart_boolean('app_now/rice_cooker', survey,False)
 ```
 
 ##app_now/other_cooking
@@ -108,6 +133,10 @@ Indonesian: "Masakan lain yang sejenis."
 survey['app_now/other_cooking'].value_counts(dropna=False)
 ```
 
+```python
+eb = pie_chart_boolean('app_now/other_cooking', survey, False)
+```
+
 ## app_now/welder
 English: Welder.
 
@@ -116,6 +145,10 @@ Indonesian: Mesin las.
 ```python
 ## app_now/welder
 survey['app_now/welder'].value_counts(dropna=False)
+```
+
+```python
+welder = pie_chart_boolean('app_now/welder', survey, False)
 ```
 
 ##app_now/grinder
@@ -128,6 +161,10 @@ Indonesian: Mesin penggiling.
 survey['app_now/grinder'].value_counts(dropna=False)
 ```
 
+```python
+grinder = pie_chart_boolean('app_now/grinder', survey, False)
+```
+
 ## app_now/saw
 English: Saw.
 
@@ -136,6 +173,10 @@ Indonesian: Mesin gergaji.
 ```python
 ## app_now/saw
 survey['app_now/saw'].value_counts(dropna=False)
+```
+
+```python
+saw = pie_chart_boolean('app_now/saw', survey, False)
 ```
 
 ##app_now/other_tools
@@ -148,6 +189,10 @@ Indonesian: Alat - alat lain yang sejenis.
 survey['app_now/other_tools'].value_counts(dropna=False)
 ```
 
+```python
+ot = pie_chart_boolean('app_now/other_tools', survey, False)
+```
+
 ##app_now/other
 English: Any other.
 
@@ -156,6 +201,10 @@ Indonesian: Ada yang lain.
 ```python
 ## app_now/other
 survey['app_now/other'].value_counts(dropna=False)
+```
+
+```python
+saw = pie_chart_boolean('app_now/other', survey, False)
 ```
 
 ## app_other_cooking_desc
@@ -233,6 +282,10 @@ survey['app_lighting_use_times/morning'].value_counts(dropna=False)
 #survey['app_lighting_use_times/morning'].describe()
 ```
 
+```python
+appmd= pie_chart_boolean('app_lighting_use_times/morning', survey, False)
+```
+
 ## app_lighting_use_times/mid_day
 
 ```python
@@ -249,11 +302,19 @@ survey['app_lighting_use_times/afternoon'].value_counts(dropna=False)
 #survey['app_lighting_use_times/afternoon'].describe()
 ```
 
+```python
+appaf= pie_chart_boolean('app_lighting_use_times/afternoon', survey, False)
+```
+
 ## app_lighting_use_times/night
 
 ```python
 ## app_lighting_use_times/night
 survey['app_lighting_use_times/night'].value_counts(dropna=False)
+```
+
+```python
+appn= pie_chart_boolean('app_lighting_use_times/night', survey,False)
 ```
 
 ## app_TV_per_wk
@@ -297,12 +358,20 @@ survey['app_TV_use_times/morning'].value_counts(dropna=False)
 #survey['app_TV_use_times/morning'].describe()
 ```
 
+```python
+appmorning= pie_chart_boolean('app_TV_use_times/morning', survey, False)
+```
+
 ## app_TV_use_times/mid_day
 
 ```python
 ## app_TV_use_times/mid_day
 survey['app_TV_use_times/mid_day'].value_counts(dropna=False)
 #survey['app_TV_use_times/mid_day'].describe()
+```
+
+```python
+appTVmd= pie_chart_boolean('app_TV_use_times/mid_day', survey, False)
 ```
 
 ## app_TV_use_times/afternoon
@@ -313,12 +382,20 @@ survey['app_TV_use_times/afternoon'].value_counts(dropna=False)
 #survey['app_TV_use_times/afternoon'].describe()
 ```
 
+```python
+appTVaftern= pie_chart_boolean('app_TV_use_times/afternoon', survey, False)
+```
+
 ## app_TV_use_times/night
 
 ```python
 ## app_TV_use_times/night
 survey['app_TV_use_times/night'].value_counts(dropna=False)
 #survey['app_TV_use_times/night'].describe()
+```
+
+```python
+appTVutn= pie_chart_boolean('app_TV_use_times/night', survey, False)
 ```
 
 ## app_radio_per_wk
@@ -359,11 +436,19 @@ survey['app_radio_use_times'].value_counts(dropna=False)
 survey['app_radio_use_times/morning'].value_counts(dropna=False)
 ```
 
+```python
+apprutp= pie_chart_boolean('app_radio_use_times/morning', survey,False)
+```
+
 ## app_radio_use_times/mid_day
 
 ```python
 ## app_radio_use_times/mid_day
 survey['app_radio_use_times/mid_day'].value_counts(dropna=False)
+```
+
+```python
+apprutmd= pie_chart_boolean('app_radio_use_times/mid_day', survey,False)
 ```
 
 ## app_radio_use_times/afternoon
@@ -373,11 +458,19 @@ survey['app_radio_use_times/mid_day'].value_counts(dropna=False)
 survey['app_radio_use_times/afternoon'].value_counts(dropna=False)
 ```
 
+```python
+apprutaf= pie_chart_boolean('app_radio_use_times/afternoon', survey,False)
+```
+
 ## app_radio_use_times/night
 
 ```python
 ## app_radio_use_times/night
 survey['app_radio_use_times/night'].value_counts(dropna=False)
+```
+
+```python
+apprutn= pie_chart_boolean('app_radio_use_times/night', survey,False)
 ```
 
 ## app_fridge_per_wk
@@ -420,11 +513,19 @@ survey['app_fridge_use_times'].value_counts(dropna=False)
 survey['app_fridge_use_times/morning'].value_counts(dropna=False)
 ```
 
+```python
+appfutm= pie_chart_boolean('app_fridge_use_times/morning', survey,False)
+```
+
 ## app_fridge_use_times/mid_day
 
 ```python
 ## app_fridge_use_times/mid_day
 survey['app_fridge_use_times/mid_day'].value_counts(dropna=False)
+```
+
+```python
+appfutmd= pie_chart_boolean('app_fridge_use_times/mid_day', survey,False)
 ```
 
 ## app_fridge_use_times/afternoon
@@ -434,11 +535,19 @@ survey['app_fridge_use_times/mid_day'].value_counts(dropna=False)
 survey['app_fridge_use_times/afternoon'].value_counts(dropna=False)
 ```
 
+```python
+appfutm= pie_chart_boolean('app_fridge_use_times/afternoon', survey,False)
+```
+
 ## app_fridge_use_times/night
 
 ```python
 ## app_fridge_use_times/night
 survey['app_fridge_use_times/night'].value_counts(dropna=False)
+```
+
+```python
+appfutn= pie_chart_boolean('app_fridge_use_times/night', survey,False)
 ```
 
 ## app_fan_per_wk
@@ -479,11 +588,19 @@ survey['app_fan_use_times'].value_counts(dropna=False)
 survey['app_fan_use_times/morning'].value_counts(dropna=False)
 ```
 
+```python
+appFANuta= pie_chart_boolean('app_fan_use_times/morning', survey, False)
+```
+
 ## app_fan_use_times/mid_day
 
 ```python
 ## app_fan_use_times/mid_day
 survey['app_fan_use_times/mid_day'].value_counts(dropna=False)
+```
+
+```python
+appFANutmd= pie_chart_boolean('app_fan_use_times/mid_day', survey, False)
 ```
 
 ## app_fan_use_times/afternoon
@@ -493,11 +610,19 @@ survey['app_fan_use_times/mid_day'].value_counts(dropna=False)
 survey['app_fan_use_times/afternoon'].value_counts(dropna=False)
 ```
 
+```python
+appFANutaf= pie_chart_boolean('app_fan_use_times/afternoon', survey, False)
+```
+
 ## app_fan_use_times/night
 
 ```python
 ## app_fan_use_times/night
 survey['app_fan_use_times/night'].value_counts(dropna=False)
+```
+
+```python
+appFANutnight= pie_chart_boolean('app_fan_use_times/night', survey, False)
 ```
 
 ## app_rice_cooker_per_wk
@@ -541,11 +666,19 @@ survey['app_rice_cooker_use_times'].value_counts(dropna=False)
 survey['app_rice_cooker_use_times/morning'].value_counts(dropna=False)
 ```
 
+```python
+appRCutm= pie_chart_boolean('app_rice_cooker_use_times/morning', survey, False)
+```
+
 ## app_rice_cooker_use_times/mid_day
 
 ```python
 ## app_rice_cooker_use_times/mid_day
 survey['app_rice_cooker_use_times/mid_day'].value_counts(dropna=False)
+```
+
+```python
+appRCutmd= pie_chart_boolean('app_rice_cooker_use_times/mid_day', survey, False)
 ```
 
 ## app_rice_cooker_use_times/afternoon
@@ -555,11 +688,19 @@ survey['app_rice_cooker_use_times/mid_day'].value_counts(dropna=False)
 survey['app_rice_cooker_use_times/afternoon'].value_counts(dropna=False)
 ```
 
+```python
+appRCutaf= pie_chart_boolean('app_rice_cooker_use_times/afternoon', survey, False)
+```
+
 ## app_rice_cooker_use_times/night
 
 ```python
 ## app_rice_cooker_use_times/night
 survey['app_rice_cooker_use_times/night'].value_counts(dropna=False)
+```
+
+```python
+appRCutn= pie_chart_boolean('app_rice_cooker_use_times/night', survey, False)
 ```
 
 ## app_other_cooking_per_wk
@@ -941,8 +1082,4 @@ survey['app_other_use_times/afternoon'].value_counts(dropna=False)
 ```python
 ## app_other_use_times/night
 survey['app_other_use_times/night'].value_counts(dropna=False)
-```
-
-```python
-
 ```

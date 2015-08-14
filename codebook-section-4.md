@@ -3,7 +3,8 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-from sentani import get_survey
+from pysentani import find_survey
+from sentani_temp import pie_chart_boolean
 ```
 
 # Code Book for Lake Sentani survey data
@@ -17,7 +18,7 @@ The document will also point out any fields that need further analysis or appear
 to need inspection to remove errors.
 
 ```python
-survey = get_survey()
+survey = find_survey('../sentani')
 print('number of entries =', len(survey))
 print('number of columns =', len(survey.columns))
 ```
@@ -135,8 +136,4 @@ Indonesian: Berapa banyak HP yang anda miliki?
 
 ```python
 survey['HP_quantity'].describe()
-```
-
-```python
-
 ```

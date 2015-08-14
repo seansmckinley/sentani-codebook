@@ -3,7 +3,8 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-from sentani import get_survey
+from pysentani import find_survey
+from sentani_temp import pie_chart_boolean
 ```
 
 # Code Book for Lake Sentani survey data
@@ -17,7 +18,7 @@ The document will also point out any fields that need further analysis or appear
 to need inspection to remove errors.
 
 ```python
-survey = get_survey()
+survey = find_survey('../sentani')
 print('number of entries =', len(survey))
 print('number of columns =', len(survey.columns))
 ```
@@ -48,6 +49,10 @@ enerangan.
 survey['app_buy/lighting'].value_counts(dropna=False)
 ```
 
+```python
+ablp = pie_chart_boolean('app_buy/lighting', survey, False)
+```
+
 ## app_buy/TV
 English: TV.
 
@@ -55,6 +60,10 @@ Indonesian: TV.
 
 ```python
 survey['app_buy/TV'].value_counts(dropna=False)
+```
+
+```python
+abTVp = pie_chart_boolean('app_buy/TV', survey, False)
 ```
 
 ## app_buy/radio
@@ -66,6 +75,10 @@ Indonesian: Radio.
 survey['app_buy/radio'].value_counts(dropna=False)
 ```
 
+```python
+abR = pie_chart_boolean('app_buy/radio', survey, False)
+```
+
 ## app_buy/fridge
 English: Fridge.
 
@@ -73,6 +86,10 @@ Indonesian: Kulkas.
 
 ```python
 survey['app_buy/fridge'].value_counts(dropna=False)
+```
+
+```python
+abF = pie_chart_boolean('app_buy/fridge', survey, False)
 ```
 
 ## app_buy/fan
@@ -84,6 +101,10 @@ Indonesian: Kipas angin.
 survey['app_buy/fan'].value_counts(dropna=False)
 ```
 
+```python
+abF = pie_chart_boolean('app_buy/fan', survey, False)
+```
+
 ##app_buy/rice_cooker
 English: Rice Cooker.
 
@@ -91,6 +112,10 @@ Indonesian: Penanak nasi.
 
 ```python
 survey['app_buy/rice_cooker'].value_counts(dropna=False)
+```
+
+```python
+abRC = pie_chart_boolean('app_buy/rice_cooker', survey, False)
 ```
 
 ## app_buy/other_cooking
@@ -102,6 +127,10 @@ Indonesian: Masakan lain yang sejenis.
 survey['app_buy/other_cooking'].value_counts(dropna=False)
 ```
 
+```python
+abOC = pie_chart_boolean('app_buy/other_cooking', survey, False)
+```
+
 ## app_buy/welder
 English: Welder.
 
@@ -109,6 +138,10 @@ Indonesian: Mesin las.
 
 ```python
 survey['app_buy/welder'].value_counts(dropna=False)
+```
+
+```python
+abW = pie_chart_boolean('app_buy/welder', survey, False)
 ```
 
 ##app_buy/grinder
@@ -120,6 +153,10 @@ Indonesian: Mesin penggiling.
 survey['app_buy/grinder'].value_counts(dropna=False)
 ```
 
+```python
+abG = pie_chart_boolean('app_buy/grinder', survey, False)
+```
+
 ## app_buy/saw
 English: Saw.
 
@@ -127,6 +164,10 @@ Indonesian: Mesin gergaji.
 
 ```python
 survey['app_buy/saw'].value_counts(dropna=False)
+```
+
+```python
+abS = pie_chart_boolean('app_buy/saw', survey, False)
 ```
 
 ##app_buy/other_tools
@@ -138,6 +179,10 @@ Indonesian: Alat - alat lain yang sejenis.
 survey['app_buy/other_tools'].value_counts(dropna=False)
 ```
 
+```python
+abOT = pie_chart_boolean('app_buy/other_tools', survey, False)
+```
+
 ##app_buy/other
 English: Any other.
 
@@ -145,6 +190,10 @@ Indonesian: Ada yang lain.
 
 ```python
 survey['app_buy/other'].value_counts(dropna=False)
+```
+
+```python
+abO = pie_chart_boolean('app_buy/other', survey, False)
 ```
 
 ## app_buy_other
@@ -458,8 +507,4 @@ tidak dapat anda lakukan sekarang?
 ```python
 ##survey['app_future'].value_counts(dropna=False)
 survey['app_future'].describe()
-```
-
-```python
-
 ```
