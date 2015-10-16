@@ -3,7 +3,8 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-from sentani import get_survey
+from pysentani import find_survey
+from sentani_temp import pie_chart_boolean
 ```
 
 # Code Book for Lake Sentani survey data
@@ -17,7 +18,7 @@ The document will also point out any fields that need further analysis or appear
 to need inspection to remove errors.
 
 ```python
-survey = get_survey()
+survey = find_survey('../sentani')
 print('number of entries =', len(survey))
 print('number of columns =', len(survey.columns))
 ```
@@ -45,6 +46,10 @@ menghasilkan pendapatan?
 
 ```python
 survey['electric_income_y_n'].value_counts()
+```
+
+```python
+eiyn = pie_chart_boolean('electric_income_y_n',survey, False)
 ```
 
 ## group_electric_income/electric_income_desc
@@ -158,6 +163,10 @@ swasta, pribadi, atau kampung)?
 survey['power_supply_y_n'].value_counts(dropna=False)
 ```
 
+```python
+psyn = pie_chart_boolean('power_supply_y_n',survey,False)
+```
+
 ## power_supply
 
 TODO: check that these are consistent with other values.  Also check if the
@@ -183,6 +192,10 @@ Indonesian: Jaringan PLN.
 survey['power_supply/PLN_grid'].value_counts(dropna=False)
 ```
 
+```python
+psPLNgg = pie_chart_boolean('power_supply/PLN_grid',survey, False)
+```
+
 ## power_supply/PLN_microgrid
 
 English: PLN microgrid.
@@ -191,6 +204,10 @@ Indonesian: Jaringan mikro PLN
 
 ```python
 survey['power_supply/PLN_microgrid'].value_counts(dropna=False)
+```
+
+```python
+psPLNmgg = pie_chart_boolean('power_supply/PLN_microgrid',survey, False)
 ```
 
 ## power_supply/community_microgrid
@@ -203,6 +220,10 @@ Indonesian: Jaringan mikro kampung.
 survey['power_supply/community_microgrid'].value_counts(dropna=False)
 ```
 
+```python
+PLNgmyn = pie_chart_boolean('PLN_grid_metered_y_n',survey,False)
+```
+
 ## power_supply/private_genset
 
 English: Private genset.
@@ -211,6 +232,10 @@ Indonesian: Genset pribadi.
 
 ```python
 survey['power_supply/private_genset'].value_counts(dropna=False)
+```
+
+```python
+pspgg = pie_chart_boolean('power_supply/private_genset',survey, False)
 ```
 
 ## power_supply/solar_home_system
@@ -223,6 +248,10 @@ Indonesian: Sistem tenaga surya.
 survey['power_supply/solar_home_system'].value_counts(dropna=False)
 ```
 
+```python
+psshsg = pie_chart_boolean('power_supply/solar_home_system',survey, False)
+```
+
 ## power_supply/other
 
 English:  Other.
@@ -231,6 +260,10 @@ Indonesian: Lain - lain.
 
 ```python
 survey['power_supply/other'].value_counts(dropna=False)
+```
+
+```python
+k3 = pie_chart_boolean('power_supply/other',survey, False)
 ```
 
 ## power_supply_other
@@ -265,6 +298,10 @@ Indonesian: Apakah ada meteran listrik PLN di lokasi ini?
 survey['PLN_grid_metered_y_n'].value_counts(dropna=False)
 ```
 
+```python
+z = pie_chart_boolean('PLN_grid_metered_y_n',survey, False)
+```
+
 ## PLN_grid_meter
 
 English: What type of meter (for PLN grid connection)?
@@ -273,6 +310,10 @@ Indonesian: Apakah jenis meteran (untuk koneksi jaringan PLN)?
 
 ```python
 survey['PLN_grid_meter'].value_counts(dropna=False)
+```
+
+```python
+PLNgmg = sns.countplot(x="PLN_grid_meter", data=survey)
 ```
 
 ## PLN_grid_meter_reading
@@ -318,6 +359,10 @@ Indonesian: Apakah jenis meteran (untuk koneksi jaringan mikro PLN)?
 
 ```python
 survey['PLN_microgrid_meter'].value_counts(dropna=False)
+```
+
+```python
+PLNmmg = sns.countplot(x="PLN_microgrid_meter", data=survey)
 ```
 
 ## PLN_microgrid_meter_reading
@@ -539,6 +584,10 @@ Indonesian: Jaringan PLN.
 survey['power_supply_working/PLN_grid'].value_counts(dropna=False)
 ```
 
+```python
+pswPLNgp = pie_chart_boolean('power_supply_working/PLN_grid',survey, False)
+```
+
 ## power_supply_working/PLN_microgrid
 
 English: PLN microgrid.
@@ -547,6 +596,10 @@ Indonesian: Jaringan mikro PLN
 
 ```python
 survey['power_supply_working/PLN_microgrid'].value_counts(dropna=False)
+```
+
+```python
+pswPLNmg = pie_chart_boolean('power_supply_working/PLN_microgrid',survey, False)
 ```
 
 ## power_supply_working/community_microgrid
@@ -559,6 +612,10 @@ Indonesian: Jaringan mikro kampung.
 survey['power_supply_working/community_microgrid'].value_counts(dropna=False)
 ```
 
+```python
+pswcm = pie_chart_boolean('power_supply_working/community_microgrid',survey, False)
+```
+
 ## power_supply_working/private_genset
 
 English: Private genset.
@@ -567,6 +624,10 @@ Indonesian: Genset pribadi.
 
 ```python
 survey['power_supply_working/private_genset'].value_counts(dropna=False)
+```
+
+```python
+pswpgg = pie_chart_boolean('power_supply_working/private_genset',survey,False)
 ```
 
 ## power_supply_working/solar_home_system
@@ -579,6 +640,10 @@ Indonesian: Sistem tenaga surya.
 survey['power_supply_working/solar_home_system'].value_counts(dropna=False)
 ```
 
+```python
+pswshs = pie_chart_boolean('power_supply_working/solar_home_system',survey,False)
+```
+
 ## power_supply_working/other
 
 English: Other.
@@ -587,6 +652,10 @@ Indonesian: Lain-lain.
 
 ```python
 survey['power_supply_working/other'].value_counts(dropna=False)
+```
+
+```python
+pswop = pie_chart_boolean('power_supply_working/other',survey, False)
 ```
 
 ##PLN_expenditure
